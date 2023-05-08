@@ -18,4 +18,4 @@ Let's take a look inside the `src` folder
 
 `-services` -> contains the buiness logic and interacts with repositories for data from the database
 
-`utils-` -> contains helper methods, error classes etc.w
+`utils-` -> contains helper methods, error classes etc.
