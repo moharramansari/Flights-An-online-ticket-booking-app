@@ -19,3 +19,8 @@ Let's take a look inside the `src` folder
 `-services` -> contains the buiness logic and interacts with repositories for data from the database
 
 `utils-` -> contains helper methods, error classes etc.
+
+### Set up the project
+
+- Download this template from github and open it in your favourite text editor.
+- Go inside the folder path and execute the following command:
