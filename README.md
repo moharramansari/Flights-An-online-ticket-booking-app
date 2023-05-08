@@ -23,6 +23,10 @@ Let's take a look inside the `src` folder
 ### Set up the project
 
 - Download this template from github and open it in your favourite text editor.
+- Go inside the folder path and execute the following command:
+  ```
+       npm install 
+  ```
 - In the root directory create a .env file and add the following env variables
 
   ```
@@ -47,7 +51,7 @@ Let's take a look inside the `src` folder
 
   - If you're setting up test or prod environment, make sure you also replace the host with the hosted db url.
 
-  - To run the server
+  - To run the server execute
 
   ```
      npm run dev
