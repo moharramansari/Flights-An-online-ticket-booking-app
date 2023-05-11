@@ -7,9 +7,14 @@ const router = express.Router();
 
 // /api/v1/airplanes POST
 
-router.post("/",
+router.post(
+  "/",
   AirplaneMiddlewares.validateCreateRequest,
   AirplaneController.createAirplane
 );
+
+// /api/v1/airplanes POST
+
+router.get("/", AirplaneController.getAirplanes);
 
 module.exports = router;
