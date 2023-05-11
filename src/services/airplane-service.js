@@ -71,6 +71,7 @@ async function destroyAirplane(id) {
   }
 }
 
+
 module.exports = {
   createAirplane,
   getAirplanes,
