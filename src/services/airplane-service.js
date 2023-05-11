@@ -28,11 +28,27 @@ async function getAirplanes() {
     const airplanes = await airplaneRepository.getAll();
     return airplanes;
   } catch (error) {
-    throw new AppError("Cannot fetch data of all the airplanes",StatusCodes.INTERNAL_SERVER_ERROR);
+    throw new AppError(
+      "Cannot fetch data of all the airplanes",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
+async function getAirplane(id) {
+  try {
+    const airplane = await airplaneRepository.get(id);
+    return airplane;
+  } catch (error) {
+    throw new AppError(
+      "Cannot fetch data of all the airplanes",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
   }
 }
 
 module.exports = {
   createAirplane,
   getAirplanes,
+  getAirplane,
 };
