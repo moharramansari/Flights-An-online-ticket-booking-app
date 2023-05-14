@@ -1,3 +1,3 @@
 module.exports = {
-  AirplaneRepository: require("./airplance-repository"),
+  AirplaneRepository: require("./airplane-repository"),
 };

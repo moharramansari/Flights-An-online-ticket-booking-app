@@ -35,6 +35,8 @@ async function getAirplanes() {
   }
 }
 
+/** TODO **/
+//I am not able to get the current error that i want to give to the json.. Please check it again
 async function getAirplane(id) {
   try {
     const airplane = await airplaneRepository.get(id);
@@ -42,7 +44,7 @@ async function getAirplane(id) {
   } catch (error) {
     if (error.statusCode == StatusCodes.NOT_FOUND) {
       throw new AppError(
-        "The airplane you requested to delete is not present",
+        "The airplane you requested is not present",
         error.statusCode
       );
     }
@@ -60,7 +62,7 @@ async function destroyAirplane(id) {
   } catch (error) {
     if (error.statusCode == StatusCodes.NOT_FOUND) {
       throw new AppError(
-        "The airplane you requested is not present",
+        "The airplane you requested to delete is not present",
         error.statusCode
       );
     }
@@ -70,7 +72,6 @@ async function destroyAirplane(id) {
     );
   }
 }
-
 
 module.exports = {
   createAirplane,
