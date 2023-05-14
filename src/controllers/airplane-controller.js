@@ -57,7 +57,6 @@ async function getAirplane(req, res) {
 async function updateAirplane(req, res) {
   try {
     const airplanes = await AirplaneService.updateAirplane(req.params.id, {
-      modelNumber: req.body.modelNumber,
       capacity: req.body.capacity,
     });
     SuccessResponse.data = airplanes;
