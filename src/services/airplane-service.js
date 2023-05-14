@@ -35,8 +35,6 @@ async function getAirplanes() {
   }
 }
 
-/** TODO **/
-//I am not able to get the current error that i want to give to the json.. Please check it again
 async function getAirplane(id) {
   try {
     const airplane = await airplaneRepository.get(id);
