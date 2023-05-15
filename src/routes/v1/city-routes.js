@@ -12,16 +12,16 @@ router.post(
   CityController.createCity
 );
 
-// /api/v1/airplanes GET
+// /api/v1/cities GET
 router.get("/", CityController.getCitys);
 
-// /api/v1/airplanes/:id GET
+// /api/v1/city/:id GET
 router.get("/:id", CityController.getCity);
 
-// /api/v1/airplanes/:id UPDATE
+// /api/v1/city/:id UPDATE
 router.patch("/:id", CityController.updateCity);
 
-// /api/v1/airplanes/:id DELETE
+// /api/v1/city/:id DELETE
 router.delete("/:id", CityController.destroyCity);
 
 module.exports = router;
