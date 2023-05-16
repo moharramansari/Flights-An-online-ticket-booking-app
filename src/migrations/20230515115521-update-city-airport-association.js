@@ -9,9 +9,8 @@ module.exports = {
       fields: ["cityId"],
       references: {
         table: "Cities",
-        field: "id",
+        field: "id",  
       },
-      onUpdate: "CASCADE",
       onDelete: "CASCADE",
     });
   },
