@@ -12,11 +12,15 @@ router.post(
   FlightController.createFlight
 );
 
-// /api/v1/flight GET
-router.get("/", FlightController.getFlights);
+// // /api/v1/flight GET
+// router.get("/", FlightController.getFlights);
 
 // /api/v1/flight/:id GET
 router.get("/:id", FlightController.getFlight);
+
+//pagination
+// /api/v1/flight/filter GET
+router.get("/", FlightController.getAllFlights);
 
 // /api/v1/flight/:id UPDATE
 router.patch("/:id", FlightController.updateFlight);

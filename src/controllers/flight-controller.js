@@ -33,20 +33,31 @@ async function createFlight(req, res) {
   }
 }
 
-/**
- * GET : /Flight
- * req-body {}
- */
-async function getFlights(req, res) {
+async function getAllFlights(req, res) {
   try {
-    const airports = await FlightService.getFlights();
-    SuccessResponse.data = airports;
-    return res.status(StatusCodes.OK).json(SuccessResponse);
+    const flights = await FlightService.getAllFlights(req.query);
+    SuccessResponse.data = flights;
+    return res.status(StatusCodes.CREATED).json(SuccessResponse);
   } catch (error) {
     ErrorResponse.error = error;
     return res.status(error.statusCode).json(ErrorResponse);
   }
 }
+
+/**
+ * GET : /Flight
+ * req-body {}
+ */
+// async function getFlights(req, res) {
+//   try {
+//     const airports = await FlightService.getFlights();
+//     SuccessResponse.data = airports;
+//     return res.status(StatusCodes.OK).json(SuccessResponse);
+//   } catch (error) {
+//     ErrorResponse.error = error;
+//     return res.status(error.statusCode).json(ErrorResponse);
+//   }
+// }
 
 /**
  * GET : /Flight/:id
@@ -95,7 +106,8 @@ async function destroyFlight(req, res) {
 
 module.exports = {
   createFlight,
-  getFlights,
+  //getFlights,
+  getAllFlights,
   getFlight,
   updateFlight,
   destroyFlight,
