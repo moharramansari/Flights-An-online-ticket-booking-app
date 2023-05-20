@@ -55,11 +55,11 @@ async function getAllFlights(query) {
     };
   }
 
-  if (query.sort) {
-    const params = query.sort.split(",");
-    const sortFilter = params.map((customParam) => params.split("_"));
-    sortFilter = sortFilter;
-  }
+    if (query.sort) {
+      const params = query.sort.split(",");
+      const sortFilters = params.map((param) => param.split("_"));
+      sortFilter = sortFilters;
+    }
 
   try {
     const flights = await flightRepository.getAllFlights(customFilter);
