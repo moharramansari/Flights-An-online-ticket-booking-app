@@ -19,7 +19,7 @@ router.post(
 router.get("/:id", FlightController.getFlight);
 
 //pagination
-// /api/v1/flight/filter GET
+// /api/v1/flight/filter?trips =  GET
 router.get("/", FlightController.getAllFlights);
 
 // /api/v1/flight/:id UPDATE
