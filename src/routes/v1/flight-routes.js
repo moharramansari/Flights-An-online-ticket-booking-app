@@ -9,6 +9,7 @@ const router = express.Router();
 router.post(
   "/",
   FlightMiddlewares.validateCreateRequest,
+  FlightMiddlewares.validateDateTime,
   FlightController.createFlight
 );
 
