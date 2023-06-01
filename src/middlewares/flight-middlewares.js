@@ -135,9 +135,34 @@ function validateArrivalDestinationCodeReqBody(req, res, next) {
   next();
 }
 
+function validateArrivalDestinationCodeQueryParams(req, res, next) {
+  if (req.query.trips) {
+    [departureAirportId, arrivalAirportId] = req.query.trips.split("-");
+    if (departureAirportId === undefined || arrivalAirportId === undefined) {
+      ErrorResponse.message = "Failed to create a Flight";
+      ErrorResponse.error = new AppError(
+        ["Enter the Arrival Airport ID & Departure Airport ID correctly"],
+        StatusCodes.BAD_REQUEST
+      );
+      return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+    }
+
+    if (arrivalAirportId == departureAirportId) {
+      ErrorResponse.message = "Failed to create a Flight";
+      ErrorResponse.error = new AppError(
+        ["The Arrival Airport ID & Departure Airport ID cannot be same"],
+        StatusCodes.BAD_REQUEST
+      );
+      return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+    }
+  }
+  next();
+}
+
 module.exports = {
   validateCreateRequest,
   validateDateTime,
   validatePrice,
   validateArrivalDestinationCodeReqBody,
+  validateArrivalDestinationCodeQueryParams,
 };

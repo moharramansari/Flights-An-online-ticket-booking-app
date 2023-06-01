@@ -23,7 +23,11 @@ router.get("/:id", FlightController.getFlight);
 
 //pagination
 // /api/v1/flight/filter?trips =  GET
-router.get("/", FlightController.getAllFlights);
+router.get(
+  "/",
+  FlightMiddlewares.validateArrivalDestinationCodeQueryParams,
+  FlightController.getAllFlights
+);
 
 // /api/v1/flight/:id UPDATE
 router.patch("/:id", FlightController.updateFlight);
