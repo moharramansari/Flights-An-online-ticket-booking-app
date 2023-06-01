@@ -109,4 +109,18 @@ function validateDateTime(req, res, next) {
   next();
 }
 
-module.exports = { validateCreateRequest, validateDateTime };
+function validatePrice(req, res, next) {
+  const flightPrice = req.body.price;
+  if (flightPrice < 0) {
+    ErrorResponse.message = "Failed to create a Flight";
+    ErrorResponse.error = new AppError(
+      ["It is not possible to have a negative flight price"],
+      StatusCodes.BAD_REQUEST
+    );
+    return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+  }
+
+  next();
+}
+
+module.exports = { validateCreateRequest, validateDateTime, validatePrice };

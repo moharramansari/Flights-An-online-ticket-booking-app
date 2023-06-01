@@ -10,6 +10,7 @@ router.post(
   "/",
   FlightMiddlewares.validateCreateRequest,
   FlightMiddlewares.validateDateTime,
+  FlightMiddlewares.validatePrice,
   FlightController.createFlight
 );
 
