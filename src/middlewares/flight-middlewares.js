@@ -123,4 +123,21 @@ function validatePrice(req, res, next) {
   next();
 }
 
-module.exports = { validateCreateRequest, validateDateTime, validatePrice };
+function validateArrivalDestinationCodeReqBody(req, res, next) {
+  if (req.body.arrivalAirportId == req.body.departureAirportId) {
+    ErrorResponse.message = "Failed to create a Flight";
+    ErrorResponse.error = new AppError(
+      ["The Arrival Airport ID & Departure Airport ID cannot be same"],
+      StatusCodes.BAD_REQUEST
+    );
+    return res.status(StatusCodes.BAD_REQUEST).json(ErrorResponse);
+  }
+  next();
+}
+
+module.exports = {
+  validateCreateRequest,
+  validateDateTime,
+  validatePrice,
+  validateArrivalDestinationCodeReqBody,
+};

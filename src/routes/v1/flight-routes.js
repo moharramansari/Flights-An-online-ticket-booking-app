@@ -11,6 +11,7 @@ router.post(
   FlightMiddlewares.validateCreateRequest,
   FlightMiddlewares.validateDateTime,
   FlightMiddlewares.validatePrice,
+  FlightMiddlewares.validateArrivalDestinationCodeReqBody,
   FlightController.createFlight
 );
 
