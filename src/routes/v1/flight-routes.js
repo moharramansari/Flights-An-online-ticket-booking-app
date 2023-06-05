@@ -2,6 +2,7 @@ const express = require("express");
 
 const { FlightController } = require("../../controllers");
 const { FlightMiddlewares } = require("../../middlewares");
+const { updateSeats } = require("../../services/flight-service");
 
 const router = express.Router();
 
@@ -29,8 +30,15 @@ router.get(
   FlightController.getAllFlights
 );
 
+
 // /api/v1/flight/:id UPDATE
 router.patch("/:id", FlightController.updateFlight);
+
+router.patch(
+  "/:id/seats",
+  FlightMiddlewares.validateUpdateSeatsRequest,
+  FlightController.updateSeats
+);
 
 // /api/v1/flight/:id DELETE
 router.delete("/:id", FlightController.destroyFlight);
